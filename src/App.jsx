@@ -1,11 +1,12 @@
-import Users from "./components/Users"
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
 
-
-import Login from "./components/Login"
+import Login from "./components/Login";
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      hello world
-    </h1>
-  )
+    <div className="App bg-violet-900 h-screen">
+      <Navbar />
+      <Hero />
+    </div>
+  );
 }
