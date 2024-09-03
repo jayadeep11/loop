@@ -13,7 +13,7 @@ const Hero = () => {
   };
   return (
     <div className="text-center flex flex-col justify-between items-center  text-7xl font-bold">
-      <h1 className="mt-10">Welcome to Loop</h1>
+      <h1 className="mt-10">The journey of loop starts here.</h1>
       <h1 className="mt-80">Create your own loop</h1>
       <button
         className="navbar-toggler text-black text-4xl mt-10  p-2 rounded-xl bg-violet-400  "

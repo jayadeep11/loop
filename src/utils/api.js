@@ -1,4 +1,4 @@
-const apikey = "http://localhost:3000/api/auth/"
+const apikey = "https://noh.onrender.com/"
 
 export const getUser = async () => {
   const response = await fetch(`${apikey}users`)
