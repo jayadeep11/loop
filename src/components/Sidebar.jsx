@@ -47,9 +47,10 @@ const Sidebar = () => {
             Loop
           </h1>
         </div>
-        <div 
-      onClick={handlenotes}
-    className="flex gap-2 items-center w-full justify-start hover:text-violet-700">
+        <div
+          onClick={handlenotes}
+          className="flex gap-2 items-center w-full justify-start hover:text-violet-700"
+        >
           <FaNoteSticky className="text-zinc-700 text-5xl hover:text-violet-700" />
           <h1 className="text-zinc-700 text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-violet-700">
             Notes

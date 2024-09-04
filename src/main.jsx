@@ -1,15 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import Login from './components/Login'
-import Users from './components/Users'
-import Layout from './components/Layout'
-import Settings from './components/Settings'
-import Arch from './components/Arch'
-import Neovim from './components/Neovim'
-import Notes from './components/Notes'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import Login from './components/Login';
+import Users from './components/Users';
+import Layout from './components/Layout';
+import Settings from './components/Settings';
+import Arch from './components/Arch';
+import Neovim from './components/Neovim';
+import Notes from './components/Notes';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { NotificationProvider } from './components/NotificationContext.jsx'; // Import NotificationProvider
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <NotificationProvider>
+      <RouterProvider router={router} />
+    </NotificationProvider>
   </StrictMode>,
-)
+);
 
