@@ -1,27 +1,10 @@
-// App.js or your main component
-import React, { useState } from 'react';
-import Notification from './Notification';
 
-function App() {
-    const [notificationMessage, setNotificationMessage] = useState('');
-
-    const handleCopy = () => {
-        setNotificationMessage('Content copied!');
-    };
-
-    const handleNotificationClose = () => {
-        setNotificationMessage('');
-    };
-
-    return (
-        <div onCopy={handleCopy}>
-            <Notification message={notificationMessage} onClose={handleNotificationClose} />
-            <p>Copy this text to see the notification.</p>
-            <button onClick={() => navigator.clipboard.writeText('Sample text')} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-                Copy Text
-            </button>
-        </div>
-    );
+const Home = () => {
+  return (
+    <div>
+      <h1 className="text-violet-950 text-center h-[200vh] mt-32 text-9xl arch">Home</h1>
+    </div>
+  )
 }
 
-export default App;
+export default Home

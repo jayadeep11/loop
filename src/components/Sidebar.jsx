@@ -7,6 +7,7 @@ import { FaNoteSticky } from "react-icons/fa6";
 import { IoMusicalNotesOutline } from "react-icons/io5";
 import { TiAdjustBrightness } from "react-icons/ti";
 import { CgProfile } from "react-icons/cg";
+import { MdDraw } from "react-icons/md";
 import { AiOutlineGithub } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
@@ -75,9 +76,9 @@ const Sidebar = () => {
           </h1>
         </div>
         <div className="flex gap-2 items-center w-full justify-start hover:text-violet-700">
-          <DiGit className="text-zinc-700 text-5xl hover:text-violet-700" />
+          <MdDraw className="text-zinc-700 text-5xl hover:text-violet-700" />
           <h1 className="text-zinc-700 text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-violet-700">
-            Git
+            Draw
           </h1>
         </div>
         <div className="flex gap-2 items-center w-full justify-start hover:text-violet-700">
