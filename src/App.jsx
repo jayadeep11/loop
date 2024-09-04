@@ -1,11 +1,11 @@
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
+
+import Home from "./components/Home";
 
 import Login from "./components/Login";
 export default function App() {
   return (
-    <div className="App bg-violet-900 h-screen">
-      <Hero />
+    <div className="App  h-screen">
+      <Home />
     </div>
   );
 }

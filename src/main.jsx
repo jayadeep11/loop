@@ -5,6 +5,9 @@ import Login from './components/Login'
 import Users from './components/Users'
 import Layout from './components/Layout'
 import Settings from './components/Settings'
+import Arch from './components/Arch'
+import Neovim from './components/Neovim'
+import Notes from './components/Notes'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "settings",
         element: <Settings />,
+      },
+      {
+        path: "Arch",
+        element: <Arch />,
+      },
+      {
+        path: "Neovim",
+        element: <Neovim />,
+      },
+      {
+        path: "notes",
+        element: <Notes />,
       },
     ],
   },
