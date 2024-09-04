@@ -5,8 +5,14 @@
 
 /*-- font settings --*/
 @font-face {
-  font-family: 'Acorn-SemiBold';
-  src: url('/fonts/Acorn-SemiBold.ttf') format('truetype');
+  font-family: 'acorn';
+  src: url('./fonts/Acorn-SemiBold.ttf') format('truetype'),
+    url('./fonts/Acorn-Medium.ttf') format('truetype'),
+    url('./fonts/Acorn-Bold.ttf') format('truetype'),
+    url('./fonts/Acorn-Regular.ttf') format('truetype');
+
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
 }
 
 .arch, .acorn {
