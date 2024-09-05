@@ -12,7 +12,7 @@ export const NotificationProvider = ({ children }) => {
 
     useEffect(() => {
         const handleCopy = () => {
-            setNotificationMessage('Content copied!');
+            setNotificationMessage('copied!');
             setTimeout(() => {
                 setNotificationMessage('');
             }, 2000); // Notification visible for 2 seconds
@@ -28,7 +28,7 @@ export const NotificationProvider = ({ children }) => {
         <NotificationContext.Provider value={{ notificationMessage }}>
             {children}
             {notificationMessage && (
-                <div className="fixed top-4 right-4 bg-violet-950 text-white ease-in-out px-4 py-2 rounded shadow-lg transition-all duration-500">
+                <div className="fixed top-4 right-4 bg-violet-950 text-white  ease-in-out px-4 py-2 rounded-xl shadow-lg transition-all duration-500">
                     {notificationMessage}
                 </div>
             )}

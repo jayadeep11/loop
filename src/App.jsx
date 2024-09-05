@@ -1,5 +1,5 @@
 
-import Home from "./components/Home";
+import Home from "./components/Hero";
 
 import Login from "./components/Login";
 export default function App() {
