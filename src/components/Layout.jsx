@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 
 const Layout = () => {
   return (
-    <div className="flex items-center  my-auto bg-gradient-to-r from-violet-600 to-purple-800">
+    <div className="flex h-screen items-center  my-auto bg-gradient-to-b from-[#09031C] to-[#1F0425]">
       <div className="flex items-center fixed w-50 h-screen p-2 z-10">
         <Sidebar />
       </div>

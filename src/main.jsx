@@ -8,6 +8,7 @@ import Settings from './components/Settings';
 import Arch from './components/Arch';
 import Neovim from './components/Neovim';
 import Notes from './components/Notes';
+import GetStarted from './components/GetStarted.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { NotificationProvider } from './components/NotificationContext.jsx'; // Import NotificationProvider
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "notes",
         element: <Notes />,
+      },
+      {
+        path: "get-started",
+        element: <GetStarted />,
       },
     ],
   },
