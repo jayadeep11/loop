@@ -33,6 +33,9 @@ const Sidebar = () => {
   const handlearch = () => {
     navigate("/arch");
   };
+  const handleDraw = () => {
+    navigate("/draw");
+  };
 
   const handlenotes = () => navigate("/notes");
 
@@ -75,7 +78,7 @@ const Sidebar = () => {
             Neovim
           </h1>
         </div>
-        <div className="flex gap-2 items-center w-full justify-start hover:text-violet-700">
+        <div className="flex gap-2 items-center w-full justify-start hover:text-violet-700 " onClick={handleDraw}>
           <MdDraw className="text-violet-400 text-5xl hover:text-violet-700" />
           <h1 className="text-violet-400 text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-violet-700">
             Draw

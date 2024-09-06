@@ -9,6 +9,7 @@ import Arch from './components/Arch';
 import Neovim from './components/Neovim';
 import Notes from './components/Notes';
 import GetStarted from './components/GetStarted.jsx';
+import DrawBoard from './components/DrawBoard.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { NotificationProvider } from './components/NotificationContext.jsx'; // Import NotificationProvider
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: "get-started",
         element: <GetStarted />,
       },
+      {
+        path: "draw",
+        element: <DrawBoard />,
+      },
+
     ],
   },
 ]);
