@@ -37,7 +37,7 @@ const Sidebar = () => {
   const handlenotes = () => navigate("/notes");
 
   return (
-    <div className="sidebar arch group flex flex-col border p-5 items-center hover:opacity-100 opacity-0 bg-violet-400 justify-center border-zinc-700 rounded-2xl w-[7px] transform transition-all duration-500 ease-in-out hover:w-[200px]">
+    <div className="sidebar z-0 arch group flex flex-col border p-5 items-center hover:opacity-100 opacity-0 bg-violet-400 justify-center border-zinc-700 rounded-2xl w-[7px] transform transition-all duration-500 ease-in-out hover:w-[200px]">
       <div className="icons flex flex-col gap-6 transition-all duration-500 items-end justify-around w-full">
         <div
           className="flex gap-2 items-center cursor-pointer w-full justify-start hover:text-violet-700"
