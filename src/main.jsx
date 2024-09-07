@@ -11,6 +11,7 @@ import Neovim from './components/Neovim';
 import Notes from './components/Notes';
 import GetStarted from './components/GetStarted.jsx';
 import DrawBoard from './components/DrawBoard.jsx';
+import Profile from './components/UserProfile.jsx'
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { NotificationProvider } from './components/NotificationContext.jsx'; // Import NotificationProvider
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "draw",
         element: <DrawBoard />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
 
     ],

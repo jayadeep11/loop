@@ -19,7 +19,7 @@ const Sidebar = () => {
   };
 
   const handleLogin = () => {
-    navigate("/login");
+    navigate("/profile");
   };
 
   const handleSetting = () => {

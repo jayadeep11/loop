@@ -21,7 +21,7 @@ const Login = () => {
       const res = await login(email, password);
       console.log(res); // Handle success (e.g., redirect or show success message)
 
-      navigate("/"); // Redirect to home page on success
+      navigate("/profile"); // Redirect to home page on success
     } catch (err) {
       setError(err.message); // Set the error message from the backend
     }
