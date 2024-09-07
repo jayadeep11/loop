@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { login } from "../utils/api"; // Make sure this function is correctly implemented
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -61,9 +62,10 @@ const Login = () => {
      
       <div className="text-center">
         <p className="text-sm text-gray-500">
-          Don't have an account? <a href="/register" className="text-blue-500 hover:underline text-md">
+          Don't have an account? 
+          <Link to={"/register"} className="text-blue-500 hover:underline text-md ">
             Register here
-          </a>
+          </Link>
         </p>
       </div>
 
