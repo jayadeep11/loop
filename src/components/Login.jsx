@@ -20,7 +20,7 @@ const Login = () => {
       const res = await login(email, password);
       console.log(res); // Handle success (e.g., redirect or show success message)
       // Optionally: Save token or user data
-      navigate("/users");
+      navigate("/");
     } catch (err) {
       console.error("Login failed:", err);
       setError("Login failed. Please try again.");

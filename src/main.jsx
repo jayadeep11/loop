@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import Login from './components/Login';
+import Register from './components/Register.jsx';
 import Users from './components/Users';
 import Layout from './components/Layout';
 import Settings from './components/Settings';
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "login",  // No need to add a leading slash for nested routes
         element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
       },
       {
         path: "users",
