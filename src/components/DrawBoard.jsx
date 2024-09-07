@@ -146,7 +146,7 @@ const DrawingBoard = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
+    <div className="flex flex-col items-center justify-center h-screen overflow-x-hidden">
       <div className="fixed bottom-5 p-2 border rounded-2xl shadow-lg flex flex-wrap opacity-30 hover:opacity-100 transition-all duration-300 items-center justify-center space-x-2 gap-6 md:space-x-4 md:py-3">
         <label className="flex items-center space-x-1 md:space-x-2">
           <input

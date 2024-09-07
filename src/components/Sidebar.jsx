@@ -43,9 +43,9 @@ const Sidebar = () => {
   };
 
   const items = [
-    { icon: <LuInfinity className="text-4xl" />, action: handleClick, name: "Home" },
+    { icon: <LuInfinity className="text-4xl" />, action: handleClick, name: "Loop" },
     { icon: <FaNoteSticky className="text-4xl" />, action: handleNotes, name: "Notes" },
-    { icon: <GrArchlinux className="text-4xl" />, action: handleArch, name: "Arch Linux" },
+    { icon: <GrArchlinux className="text-4xl" />, action: handleArch, name: "Arch" },
     { icon: <SiNeovim className="text-4xl" />, action: handleNeovim, name: "Neovim" },
     { icon: <MdDraw className="text-4xl" />, action: handleDraw, name: "Draw" },
     { icon: <AiOutlineGithub className="text-4xl" />, action: null, name: "GitHub" },
@@ -56,7 +56,7 @@ const Sidebar = () => {
   return (
     <motion.div
       className="sidebar fixed left-0 top-1/2 transform -translate-y-1/2 z-10 text-violet-400 flex items-center bg-transparent justify-center border-zinc-700 rounded-2xl w-[80px]"
-      initial={{ width: "50px", opacity: 0.8 }}
+      initial={{ width: "50px", opacity: 0.3 }}
       whileHover={{ width: "50px", opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
@@ -70,7 +70,7 @@ const Sidebar = () => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             {icon}
-            <span className="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-violet-400">
+            <span className="absolute left-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-violet-400">
               {name}
             </span>
           </motion.div>
