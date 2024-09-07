@@ -17,6 +17,11 @@
 - User profile page to track learning progress
 - Topics presented with big shapes and circles for creative section layout
 
+
+## Screenshots
+
+![Loop Homepage](./src/assets/Demo.jpg)
+
 ## Tech Stack
 
 - **Frontend**: React, Tailwind CSS, Framer Motion
