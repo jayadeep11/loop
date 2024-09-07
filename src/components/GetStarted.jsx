@@ -1,4 +1,4 @@
-const Settings = () => {
+const GetStarted = () => {
   return (
     <div>
       <h1 className="text-violet-400 text-center   mt-32 text-9xl arch">
@@ -29,4 +29,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default GetStarted;

@@ -19,3 +19,15 @@
   font-family: 'acorn', sans-serif;
   font-weight: 100;
 }
+
+.heading {
+  color: #B794F4; 
+}
+
+.content {
+  color: #A6A6A6; 
+}
+
+.html {
+  scroll-behavior: smooth;
+}

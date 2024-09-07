@@ -69,8 +69,8 @@ const Hero = () => {
 
       {/* Centered Heading */}
       <div className="text-center">
-        <h1 className="arch text-6xl md:text-8xl font-bold mb-4">Welcome to Loop</h1>
-        <p className="text-lg md:text-2xl mt-2 text-[#C1C1E0]">
+        <h1 className="arch  text-6xl md:text-8xl font-bold mb-4">Welcome to Loop</h1>
+        <p className="text-lg md:text-2xl mt-2 content">
           Master technologies like Docker, Arch Linux, Neovim, DSA, and more!
         </p>
       </div>
