@@ -7,14 +7,15 @@ import Users from './components/Users';
 import Layout from './components/Layout';
 import Settings from './components/Settings';
 import Arch from './components/Arch';
-import Neovim from './components/Neovim';
 import Notes from './components/Notes';
 import GetStarted from './components/GetStarted.jsx';
 import DrawBoard from './components/DrawBoard.jsx';
-import Profile from './components/UserProfile.jsx'
+import Profile from './components/UserProfile.jsx';
+import Neovim from './components/Neovim/Neovim';
+import Installation from './components/Neovim/installation.jsx'
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { NotificationProvider } from './components/NotificationContext.jsx'; // Import NotificationProvider
+import { NotificationProvider } from './components/NotificationContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "login",  // No need to add a leading slash for nested routes
+        path: "login",
         element: <Login />,
       },
       {
@@ -48,6 +49,12 @@ const router = createBrowserRouter([
       {
         path: "Neovim",
         element: <Neovim />,
+        children: [
+          {
+            path: "installation",
+            element: <Installation />,
+          },
+        ],
       },
       {
         path: "notes",
@@ -65,7 +72,6 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
-
     ],
   },
 ]);
