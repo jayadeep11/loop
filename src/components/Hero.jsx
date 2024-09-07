@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { ThemeNotification } from "./Notification";
+import { FaChrome } from "react-icons/fa"; // Import Google Chrome icon
 
 const Hero = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Manage login state
-  const [menuOpen, setMenuOpen] = useState(false); // Manage menu state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [notificationVisible, setNotificationVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNotificationVisible(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleLogout = () => {
-    // Implement your logout logic here
-    setIsLoggedIn(false); // For demo purposes, set to false immediately
+    setIsLoggedIn(false);
   };
 
   const handleSettings = () => {
@@ -21,6 +31,10 @@ const Hero = () => {
 
   const handleClick = () => {
     navigate("/get-started");
+  };
+
+  const handleNotificationClose = () => {
+    setNotificationVisible(false);
   };
 
   return (
@@ -54,6 +68,19 @@ const Hero = () => {
           </div>
         )}
       </div>
+
+      {/* Notification */}
+      {notificationVisible && (
+        <ThemeNotification
+          message={
+            <span>
+              For a better experience, switch to the violet theme in Google chrome {" "}
+              <FaChrome className="inline-block text-xl" />
+            </span>
+          }
+          onClose={handleNotificationClose}
+        />
+      )}
 
       {/* Centered Heading */}
       <div className="text-center">

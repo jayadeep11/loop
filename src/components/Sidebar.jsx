@@ -55,7 +55,7 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      className="sidebar fixed left-0 top-1/2 transform -translate-y-1/2 z-10 text-violet-400 flex items-center bg-transparent justify-center border-zinc-700 rounded-2xl w-[80px]"
+      className="sidebar fixed left-0 top-1/2 transform -translate-y-1/2 z-10 text-violet-400 flex items-center bg-transparent justify-center border-zinc-700 rounded-2xl w-[80px] transition-all duration-500"
       initial={{ width: "50px", opacity: 0.3 }}
       whileHover={{ width: "50px", opacity: 1 }}
       transition={{ duration: 0.5 }}
