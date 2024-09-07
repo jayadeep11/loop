@@ -6,11 +6,6 @@ const Hero = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Manage login state
   const [menuOpen, setMenuOpen] = useState(false); // Manage menu state
 
-  const handleLogin = () => {
-    // Implement your login logic here
-    setIsLoggedIn(true); // For demo purposes, set to true immediately
-  };
-
   const handleLogout = () => {
     // Implement your logout logic here
     setIsLoggedIn(false); // For demo purposes, set to false immediately
@@ -29,10 +24,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-[#09031B] to-[#1F0431] text-white min-h-screen flex flex-col items-center justify-center">
-      {/* Profile Menu or Login Button */}
+    <section className="relative bg-transparent text-white min-h-screen flex flex-col items-center justify-center">
+      {/* Profile Menu */}
       <div className="absolute top-16 right-16 flex items-center">
-        {isLoggedIn ? (
+        {isLoggedIn && (
           <div className="relative">
             <img
               src={`https://ui-avatars.com/api/?name=User&background=6B46C1&color=FFFFFF&size=128`}
@@ -57,19 +52,12 @@ const Hero = () => {
               </div>
             )}
           </div>
-        ) : (
-          <button
-            onClick={handleLogin}
-            className="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-full"
-          >
-            Login
-          </button>
         )}
       </div>
 
       {/* Centered Heading */}
       <div className="text-center">
-        <h1 className="arch  text-6xl md:text-8xl font-bold mb-4">Welcome to Loop</h1>
+        <h1 className="arch text-6xl md:text-8xl font-bold mb-4">Welcome to Loop</h1>
         <p className="text-lg md:text-2xl mt-2 content">
           Master technologies like Docker, Arch Linux, Neovim, DSA, and more!
         </p>
