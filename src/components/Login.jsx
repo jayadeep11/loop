@@ -58,6 +58,15 @@ const Login = () => {
         </button>
       </form>
       {error && <p>{error}</p>} {/* Optional: Display error message */}
+     
+      <div className="text-center">
+        <p className="text-sm text-gray-500">
+          Don't have an account? <a href="/register" className="text-blue-500 hover:underline text-md">
+            Register here
+          </a>
+        </p>
+      </div>
+
       <button
         className="navbar-toggler text-white  p-2 rounded-xl bg-violet-600  "
         onClick={handleHome}
