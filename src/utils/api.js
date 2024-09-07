@@ -19,6 +19,7 @@ export const getUser = async () => {
 };
 
 // Login user
+
 export const login = async (email, password) => {
   try {
     const response = await fetch(`${apikey}login`, {
@@ -30,15 +31,15 @@ export const login = async (email, password) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Error logging in: ${response.statusText}`);
+      const errorData = await response.json();
+      throw new Error(errorData.msg || "Login failed");
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
-    console.error("Login failed:", error);
-    return null; // Handle login failure gracefully
+    console.error("Login failed:", error.message);
+    throw error; // Re-throw the error for handling in the component
   }
 };
 
@@ -53,14 +54,16 @@ export const register = async (username, email, password) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Error registering: ${response.statusText}`);
+      const errorData = await response.json();
+      throw new Error(errorData.msg || "Registration failed");
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
-    console.error("Register failed:", error);
-    return null; // Handle register failure gracefully
+    console.error("Register failed:", error.message);
+    throw error; // Rethrow the error for handling in the component
   }
 };
+
+
