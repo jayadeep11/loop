@@ -4,7 +4,8 @@ import { SiNeovim } from "react-icons/si";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaNoteSticky } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import { MdDraw,  } from "react-icons/md"; // Import new icon
+import { MdDraw,  } from "react-icons/md"; // Import new icons
+import { SiAboutdotme } from "react-icons/si";
 import { AiOutlineGithub } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -36,7 +37,7 @@ const Sidebar = () => {
     navigate("/draw");
   };
 
-  const handleNotes = () => navigate("/notes");
+  const handleNotes = () => navigate("/problems");
 
   const handleDashboard = () => {
     navigate("/dashboard"); // Add the action for the new item
@@ -44,13 +45,14 @@ const Sidebar = () => {
 
   const items = [
     { icon: <LuInfinity className="text-4xl" />, action: handleClick, name: "Loop" },
-    { icon: <FaNoteSticky className="text-4xl" />, action: handleNotes, name: "Notes" },
+    { icon: <FaNoteSticky className="text-4xl" />, action: handleNotes, name: "Problems" },
     { icon: <GrArchlinux className="text-4xl" />, action: handleArch, name: "Arch" },
     { icon: <SiNeovim className="text-4xl" />, action: handleNeovim, name: "Neovim" },
     { icon: <MdDraw className="text-4xl" />, action: handleDraw, name: "Draw" },
     { icon: <AiOutlineGithub className="text-4xl" />, action: null, name: "GitHub" },
     { icon: <CgProfile className="text-4xl" />, action: handleLogin, name: "Profile" },
     { icon: <IoSettingsOutline className="text-4xl" />, action: handleSetting, name: "Settings" },
+    { icon: <SiAboutdotme className="text-4xl" />, action: null, name: "About" },
   ];
 
   return (
