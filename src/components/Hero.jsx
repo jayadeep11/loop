@@ -38,44 +38,15 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-transparent text-white min-h-screen flex flex-col items-center justify-center">
-      {/* Profile Menu */}
-      <div className="absolute top-16 right-16 flex items-center">
-        {isLoggedIn && (
-          <div className="relative">
-            <img
-              src={`https://ui-avatars.com/api/?name=User&background=6B46C1&color=FFFFFF&size=128`}
-              alt="profile"
-              className="w-12 h-12 rounded-full cursor-pointer border-2 border-white shadow-lg"
-              onClick={toggleMenu}
-            />
-            {menuOpen && (
-              <div className="absolute top-full right-0 mt-2 bg-white text-black rounded-lg shadow-lg overflow-hidden">
-                <button
-                  onClick={handleLogout}
-                  className="block px-4 py-2 text-sm hover:bg-gray-100 w-full text-left"
-                >
-                  Logout
-                </button>
-                <button
-                  onClick={handleSettings}
-                  className="block px-4 py-2 text-sm hover:bg-gray-100 w-full text-left"
-                >
-                  Settings
-                </button>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+    <section className="relative bg-transparent text-white min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16">
 
       {/* Notification */}
       {notificationVisible && (
         <ThemeNotification
           message={
             <span>
-              For a better experience, switch to the violet theme in Google chrome {" "}
-              <FaChrome className="inline-block text-xl" />
+              For a better experience, switch to the violet theme in Google Chrome{" "}
+              <FaChrome className="inline-block text-xl ml-2" />
             </span>
           }
           onClose={handleNotificationClose}
@@ -84,21 +55,23 @@ const Hero = () => {
 
       {/* Centered Heading */}
       <div className="text-center">
-        <h1 className="arch text-6xl md:text-8xl font-bold mb-4">Welcome to Loop</h1>
-        <p className="text-lg md:text-2xl mt-2 content">
+        <h1 className="arch text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4">
+          Welcome to Loop
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl mt-2">
           Master technologies like Docker, Arch Linux, Neovim, DSA, and more!
         </p>
       </div>
 
       {/* Buttons */}
-      <div className="mt-8 flex space-x-8">
+      <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
         <button
           onClick={handleClick}
-          className="bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300"
+          className="bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full transition-all duration-300 text-base sm:text-lg"
         >
           Get Started
         </button>
-        <button className="bg-transparent border border-violet-600 hover:bg-violet-700 hover:text-white text-violet-600 font-bold py-3 px-8 rounded-full transition-all duration-300">
+        <button className="bg-transparent border border-violet-600 hover:bg-violet-700 hover:text-white text-violet-600 font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full transition-all duration-300 text-base sm:text-lg">
           Learn More
         </button>
       </div>

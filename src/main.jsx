@@ -6,13 +6,13 @@ import Register from './components/Register.jsx';
 import Users from './components/Users';
 import Layout from './components/Layout';
 import Settings from './components/Settings';
-import Arch from './components/Arch';
+import Arch from './components/Arch/Arch';
 import Notes from './components/Notes';
 import GetStarted from './components/GetStarted.jsx';
-import DrawBoard from './components/DrawBoard.jsx';
+import DrawBoard from './components/Draw/DrawBoard';
 import Profile from './components/UserProfile.jsx';
 import Neovim from './components/Neovim/Neovim';
-import Installation from './components/Neovim/installation.jsx'
+import Installation from './components/Neovim/installation';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { NotificationProvider } from './components/NotificationContext.jsx';
