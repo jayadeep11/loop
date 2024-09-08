@@ -12,6 +12,7 @@ import GetStarted from './components/GetStarted.jsx';
 import DrawBoard from './components/Draw/DrawBoard';
 import Profile from './components/UserProfile.jsx';
 import Neovim from './components/Neovim/Neovim';
+import ProblemList from './components/Problems/Problem-pages/ProblemList';
 import Installation from './components/Neovim/installation';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "get-started",
         element: <GetStarted />,
+      },
+      {
+        path: "problems",
+        element: <ProblemList />,
       },
       {
         path: "draw",
