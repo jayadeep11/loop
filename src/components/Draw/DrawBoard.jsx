@@ -1,9 +1,9 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { PiRectangle } from "react-icons/pi";
 import { BsCircle } from "react-icons/bs";
 import { FaPencilAlt } from "react-icons/fa";
 import { CiEraser } from "react-icons/ci";
+import { AiOutlineFontSize } from "react-icons/ai"; // Import text icon
 
 const DrawingBoard = () => {
   const canvasRef = useRef(null);
@@ -11,10 +11,13 @@ const DrawingBoard = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [color, setColor] = useState('white');
   const [lineWidth, setLineWidth] = useState(5);
-  const [eraserSize, setEraserSize] = useState(40);
+  const [eraserSize, setEraserSize] = useState(50);
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
   const [tool, setTool] = useState('pen');
+  const [textInput, setTextInput] = useState('');
+  const [isTextMode, setIsTextMode] = useState(false);
+  const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -27,18 +30,17 @@ const DrawingBoard = () => {
     offScreenCanvas.height = canvas.height;
     offScreenCanvasRef.current = offScreenCanvas;
 
-    // Adjust canvas size on window resize
     const handleResize = () => {
-      saveCanvasState(); // Save current content
+      saveCanvasState();
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       offScreenCanvas.width = canvas.width;
       offScreenCanvas.height = canvas.height;
-      restoreCanvasState(); // Restore the content after resizing
+      restoreCanvasState();
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial size
+    handleResize(); 
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -60,7 +62,7 @@ const DrawingBoard = () => {
   };
 
   const startDrawing = (event) => {
-    event.preventDefault(); // Prevent default touch behavior
+    event.preventDefault();
     const { offsetX, offsetY } = getEventCoordinates(event);
     setStartX(offsetX);
     setStartY(offsetY);
@@ -77,7 +79,7 @@ const DrawingBoard = () => {
   };
 
   const draw = (event) => {
-    event.preventDefault(); // Prevent default touch behavior
+    event.preventDefault();
     if (!isDrawing) return;
 
     const { offsetX, offsetY } = getEventCoordinates(event);
@@ -88,8 +90,8 @@ const DrawingBoard = () => {
     context.lineWidth = lineWidth;
 
     if (tool === 'pen') {
-      context.lineTo(offsetX, offsetY); // Draw line to current mouse position
-      context.stroke(); // Apply stroke
+      context.lineTo(offsetX, offsetY);
+      context.stroke();
     } else if (tool === 'eraser') {
       context.clearRect(
         offsetX - eraserSize / 2,
@@ -116,7 +118,7 @@ const DrawingBoard = () => {
   };
 
   const stopDrawing = (event) => {
-    event.preventDefault(); // Prevent default touch behavior
+    event.preventDefault();
     setIsDrawing(false);
     if (tool === 'pen') {
       const canvas = canvasRef.current;
@@ -145,8 +147,30 @@ const DrawingBoard = () => {
     };
   };
 
+  // Handle text input
+  const handleTextDoubleClick = (event) => {
+    if (tool === 'text') {
+      const { offsetX, offsetY } = getEventCoordinates(event);
+      setTextPosition({ x: offsetX, y: offsetY });
+      setIsTextMode(true);
+    }
+  };
+
+  const handleTextSubmit = () => {
+    if (textInput) {
+      const canvas = canvasRef.current;
+      const context = canvas.getContext('2d');
+      context.fillStyle = color;
+      context.font = `${lineWidth * 4}px sans-serif`;
+      context.fillText(textInput, textPosition.x, textPosition.y);
+      setTextInput('');
+      setIsTextMode(false);
+      saveCanvasState();
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen overflow-x-hidden">
+    <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
       <div className="fixed bottom-5 p-2 border rounded-2xl shadow-lg flex flex-wrap opacity-30 hover:opacity-100 transition-all duration-300 items-center justify-center space-x-2 gap-6 md:space-x-4 md:py-3">
         <label className="flex items-center space-x-1 md:space-x-2">
           <input
@@ -196,6 +220,13 @@ const DrawingBoard = () => {
         </button>
 
         <button
+          onClick={() => setTool('text')}
+          className={`px-2 py-1 rounded ${tool === 'text' ? 'bg-violet-600 text-white' : 'bg-transparent'} text-sm md:text-base`}
+        >
+          <AiOutlineFontSize size={20} className="text-white" />
+        </button>
+
+        <button
           onClick={clearCanvas}
           className="bg-violet-600 text-white px-3 py-1 rounded shadow hover:bg-red-600 text-sm md:text-base"
         >
@@ -203,12 +234,10 @@ const DrawingBoard = () => {
         </button>
       </div>
 
-      <div className="w-full flex justify-center items-center">
+      <div className="flex-grow flex justify-center items-center">
         <canvas
           ref={canvasRef}
-          className="border-2 border-black cursor-crosshair rounded-lg"
-          width={window.innerWidth}
-          height={window.innerHeight}
+          className="w-full h-full cursor-crosshair rounded-lg"
           onMouseDown={startDrawing}
           onMouseMove={draw}
           onMouseUp={stopDrawing}
@@ -217,10 +246,33 @@ const DrawingBoard = () => {
           onTouchMove={draw}
           onTouchEnd={stopDrawing}
           onTouchCancel={stopDrawing}
+          onDoubleClick={handleTextDoubleClick} // Add double click handler for text
         />
+
+        {isTextMode && (
+          <div
+            style={{
+              position: 'absolute',
+              top: textPosition.y,
+              left: textPosition.x,
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            <input
+              type="text"
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              onBlur={handleTextSubmit}
+              autoFocus
+              className="bg-transparent text-white outline-none text-[2rem] font-sans"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default DrawingBoard;
+
+
