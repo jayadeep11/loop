@@ -1,7 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeNotification } from "./Notification";
+import { Link } from "react-router-dom";
 import { FaChrome } from "react-icons/fa"; // Import Google Chrome icon
+import Neovim from "../components/Neovim/Neovim"
+import problempage from "../components/Problems/Problem-pages/ProblemList";
+import drawboardpage from "../components/Draw/DrawBoard";
+
+import problems from "../assets/problems.png"
+import neovim from "../assets/Neovim.png"
+import secondux from "../assets/second.jpg"
+import drawboard from "../assets/whiteboard.png"
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -38,7 +47,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-transparent text-white min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16">
+    <section className="relative bg-transparent text-white min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 mt-16">
 
       {/* Notification */}
       {notificationVisible && (
@@ -75,6 +84,58 @@ const Hero = () => {
           Learn More
         </button>
       </div>
+
+
+
+      <div className="flex flex-col w-[90%] lg:gap-32 gap-16 mt-16">
+        {/* First Row */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-12 justify-center">
+          <div className="w-full lg:w-1/2 bg-[#b492eb]  rounded-[3rem] lg:h-[28rem] h-[24rem] p-8 text-white flex flex-col items-end relative overflow-hidden">
+            <Link to='/neovim' className="text-[3.4rem] font-extrabold text-black cursor-pointer">Neovim</Link>
+            <img
+              src={neovim}
+              alt="neovim image"
+              className="md:w-[90%] w-full absolute top-36 left-10 lg:left-12 lg:top-32 lg:w-auto lg:h-[90%] h-full object-cover rounded-xl transition-transform duration-500 ease-in-out transform hover:translate-y-6"
+            />
+          </div>
+
+          <div className="w-full lg:w-3/4 bg-[#94d6ca] rounded-[3rem] lg:h-[28rem] h-[24rem] p-8 text-white flex flex-col items-end relative overflow-hidden">
+            <Link to='/problems' className="text-[3.4rem] font-extrabold text-black cursor-pointer">Problems</Link>
+            <img
+              src={problems}
+              alt="problems image"
+              className="md:w-[90%] w-full absolute top-36 left-10 lg:left-16 lg:top-32 lg:w-auto lg:h-[90%] h-full object-cover rounded-xl transition-transform duration-500 ease-in-out transform hover:translate-y-6"
+            />
+          </div>
+        </div>
+
+
+        {/* second Row */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 justify-center">
+
+          <div className="w-full lg:w-3/4 bg-[#7092e2] rounded-[3rem] lg:h-[28rem] h-[24rem] p-8 text-white flex flex-col items-end relative overflow-hidden">
+            <Link to='/draw' className="text-[3.4rem] font-extrabold text-black">Draw Board</Link>
+            <img
+              src={drawboard}
+              alt="mountain image"
+              className="md:w-[90%] w-full absolute top-36 left-10 lg:left-16 lg:top-32 lg:w-auto lg:h-[90%] h-full object-cover rounded-xl transition-transform duration-500 ease-in-out transform hover:translate-y-6"
+            />
+          </div>
+
+          <div className="w-full lg:w-1/2 bg-[#e0dcb0]  rounded-[3rem] lg:h-[28rem] h-[24rem] p-8 text-white flex flex-col items-end relative overflow-hidden">
+            <h2 className="text-[3.4rem] font-extrabold text-black">HELP SCOUT</h2>
+            <img
+              src={secondux}
+              alt="mountain image"
+              className="md:w-[90%] w-full absolute top-36 left-10 lg:left-12 lg:top-32 lg:w-auto lg:h-[90%] h-full object-cover rounded-xl transition-transform duration-500 ease-in-out transform hover:translate-y-6"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { login } from "../utils/api"; // Ensure this path is correct
 import { useNavigate, Link } from "react-router-dom";
-
+import looplogo from "../assets/LoopLogo.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,6 +29,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center gap-10 justify-center h-screen">
+      <img src={looplogo} alt="Loop Logo" className="w-32 mb-8" />
       <h1 className="text-4xl font-bold text-white">Login</h1>
 
       <form
