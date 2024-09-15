@@ -1,23 +1,22 @@
-
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { problems } from '../../../utils/Problems.js';
 
-const ProblemPage = ({ title, description, intuition }) => {
+const ProblemPage = () => {
+  const { id } = useParams(); // Get the problem ID from the URL
+  const problem = problems.find(p => p.id === parseInt(id)); // Find the problem by ID
+
+  if (!problem) {
+    return <div>Problem not found</div>; // Handle case where problem is not found
+  }
+
   return (
-    <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 mt-8">
-      {/* Problem Title */}
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">{title}</h2>
-      
-      {/* Problem Statement */}
-      <section className="mb-8">
-        <h3 className="text-xl font-semibold text-violet-600">Problem Statement</h3>
-        <p className="text-gray-600 mt-4">{description}</p>
-      </section>
-      
-      {/* Intuition */}
-      <section className="mb-8">
-        <h3 className="text-xl font-semibold text-violet-600">Intuition</h3>
-        <p className="text-gray-600 mt-4">{intuition}</p>
-      </section>
+    <div className='p-6 md:p-10 lg:p-12 text-white min-h-screen'>
+      <div className='max-w-2xl mx-auto'>
+        <h1 className='text-3xl md:text-4xl lg:text-5xl text-violet-400 mb-4'>{problem.title}</h1>
+        <p className='text-lg md:text-xl mb-4'>{problem.description}</p>
+        <p className='text-sm md:text-md text-gray-400'>Difficulty: {problem.difficulty.charAt(0).toUpperCase() + problem.difficulty.slice(1)}</p>
+      </div>
     </div>
   );
 };

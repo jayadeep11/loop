@@ -13,6 +13,7 @@ import DrawBoard from './components/Draw/DrawBoard';
 import Profile from './components/UserProfile.jsx';
 import Neovim from './components/Neovim/Neovim';
 import ProblemList from './components/Problems/Problem-pages/ProblemList';
+import ProblemPage from './components/Problems/Problem-pages/ProblemPage';
 import Installation from './components/Neovim/installation';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "problems",
         element: <ProblemList />,
+      },
+      {
+        path: "problems/:id",
+        element: <ProblemPage />,
       },
       {
         path: "draw",
