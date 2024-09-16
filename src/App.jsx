@@ -1,7 +1,6 @@
 
-import Home from "./components/Hero";
+import Home from "./components/Hero/Hero";
 
-import Login from "./components/Login";
 export default function App() {
   return (
     <div className="App  min-h-screen">
