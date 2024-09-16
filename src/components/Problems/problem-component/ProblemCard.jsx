@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const ProblemCard = ({ id, title, description, difficulty }) => {
   let difficultyColor;
@@ -28,9 +29,16 @@ const ProblemCard = ({ id, title, description, difficulty }) => {
       difficultyText = 'Unknown';
   }
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/problems/${id}`);
+  };
+    
+
   return (
-    <div className='bg-transparent shadow-md  border md:border-gray-600 rounded-lg p-2 md:p-4 flex flex-col items-start md:space-y-5 md:gap-2 cursor-pointer hover:transition-all duration-700 hover:shadow-violet-600 hover:shadow-md '>
-      <div className='flex items-center space-x-2 md:space-x-4 justify-center'>
+    <div className='bg-transparent shadow-md  border md:border-gray-600 rounded-lg p-2 md:p-4 flex flex-col items-start md:space-y-5 md:gap-2 cursor-pointer hover:transition-all duration-700 hover:shadow-violet-600 hover:shadow-md ' onClick={handleClick}>
+git rm src/components/Hero.jsx
+      <div className='flex items-center space-x-2 md:space-x-4 justify-center ' >
 
         <div className={`${difficultyColor} hidden rounded md:flex items-center justify-center p-1 md:text-md text-sm`}>
           {difficultyText}
