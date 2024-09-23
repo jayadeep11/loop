@@ -4,7 +4,7 @@ import { SiNeovim } from "react-icons/si";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaNoteSticky } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import { MdDraw,  } from "react-icons/md"; // Import new icons
+import { MdDraw } from "react-icons/md";
 import { SiAboutdotme } from "react-icons/si";
 import { AiOutlineGithub } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -39,10 +39,6 @@ const Sidebar = () => {
 
   const handleNotes = () => navigate("/problems");
 
-  const handleDashboard = () => {
-    navigate("/dashboard"); // Add the action for the new item
-  };
-
   const items = [
     { icon: <LuInfinity className="text-4xl" />, action: handleClick, name: "Loop" },
     { icon: <FaNoteSticky className="text-4xl" />, action: handleNotes, name: "Problems" },
@@ -57,9 +53,9 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      className="sidebar fixed left-0 top-1/2 transform -translate-y-1/2 z-10 text-violet-400 flex items-center bg-transparent justify-center border-zinc-700 rounded-2xl w-[80px] transition-all duration-500"
-      initial={{ width: "50px", opacity: 0.3 }}
-      whileHover={{ width: "50px", opacity: 1 }}
+      className="sidebar fixed left-0 top-1/2 transform -translate-y-1/2 z-10 text-violet-400 flex items-center justify-center border-zinc-700 rounded-2xl w-[80px] transition-opacity duration-500"
+      initial={{ opacity: 0 }} // Initially hidden
+      whileHover={{ opacity: 1 }} // Fully visible on hover
       transition={{ duration: 0.5 }}
     >
       <div className="icons flex flex-col gap-8 items-center justify-center w-full mt-10">
