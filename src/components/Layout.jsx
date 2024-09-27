@@ -1,15 +1,17 @@
 // src/components/Layout.jsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import Navbar from '../components/Navbar/Navbar';
 
 const Layout = () => {
   return (
-    <div className="flex min-h-screen bg-gradient-to-b from-[#09031C] to-[#1F0425] relative">
-      <div className="fixed top-1/2 left-5 transform -translate-y-1/2 w-16 p-4 z-10 bg-transparent">
-        <Sidebar />
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#09031C] to-[#1F0425]">
+      {/* Top Bar */}
+      <div className="w-full fixed top-0 left-0 z-10 p-10 bg-transparent">
+        <Navbar />
       </div>
-      <div className="flex-grow p-4">
+      {/* Main content area */}
+      <div className="flex-grow mt-16 p-4">
         {/* Outlet will render the current route's component */}
         <Outlet />
       </div>
@@ -18,3 +20,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

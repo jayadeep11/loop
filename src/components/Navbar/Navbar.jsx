@@ -1,24 +1,66 @@
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { LuInfinity } from 'react-icons/lu';
+import { FaNoteSticky } from 'react-icons/fa6';
+import { GrArchlinux } from 'react-icons/gr';
+import { SiNeovim } from 'react-icons/si';
+import { AiOutlineGithub } from 'react-icons/ai';
+import NavItem from './NavItem';
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
-  const handleLogin = () => {
-    navigate("/login");
+  const toggleMobileMenu = () => {
+    setIsOpen(!isOpen);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > scrollY) {
+      setIsVisible(false); // Hide navbar when scrolling down
+    } else {
+      setIsVisible(true); // Show navbar when scrolling up
+    }
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollY]);
+
+  const items = [
+    { icon: <LuInfinity />, name: 'Home', path: '/' },
+    { icon: <GrArchlinux />, name: 'Arch', path: '/arch' },
+    { icon: <SiNeovim />, name: 'Neovim', path: '/neovim' },
+    { icon: <FaNoteSticky />, name: 'Problems', path: '/problems' },
+    { icon: <AiOutlineGithub />, name: 'GitHub', path: 'https://github.com' },
+  ];
+
   return (
-    <nav className="navbar navbar-expand-lg bg-violet-400 p-10 navbar-light bg-light">
-      <div className="container-fluid flex justify-between">
-        <a className="navbar-brand" href="#">
-          <h1>Loop</h1>
-        </a>
-        <button className="navbar-toggler text-white  p-2 rounded-xl bg-violet-600  " onClick={handleLogin} type="button">
-          Login
-        </button>
+    <nav className={`border-zinc-900 border-b text-violet-400 p-4  shadow-lg flex justify-between items-center transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'} fixed left-0 top-0 w-full z-10`}>
+      <div className="text-2xl font-bold">MyWebsite</div>
+      <div className="hidden md:flex gap-6">
+        {items.map((item, index) => (
+          <NavItem key={index} icon={item.icon} name={item.name} path={item.path} />
+        ))}
       </div>
+      <button className="md:hidden text-3xl" onClick={toggleMobileMenu}>
+        ☰
+      </button>
+      {isOpen && (
+        <div className="absolute top-14 left-0 w-full bg-zinc-800 md:hidden">
+          {items.map((item, index) => (
+            <NavItem key={index} icon={item.icon} name={item.name} path={item.path} />
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
+

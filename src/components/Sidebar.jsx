@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { LuInfinity } from "react-icons/lu";
 import { GrArchlinux } from "react-icons/gr";
 import { SiNeovim } from "react-icons/si";
@@ -8,10 +9,23 @@ import { MdDraw } from "react-icons/md";
 import { SiAboutdotme } from "react-icons/si";
 import { AiOutlineGithub } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
-const Sidebar = () => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      // Show navbar if scrolling up or near the top
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
 
   const handleClick = () => {
     navigate("/");
@@ -40,43 +54,43 @@ const Sidebar = () => {
   const handleNotes = () => navigate("/problems");
 
   const items = [
-    { icon: <LuInfinity className="text-4xl" />, action: handleClick, name: "Loop" },
-    { icon: <FaNoteSticky className="text-4xl" />, action: handleNotes, name: "Problems" },
-    { icon: <GrArchlinux className="text-4xl" />, action: handleArch, name: "Arch" },
-    { icon: <SiNeovim className="text-4xl" />, action: handleNeovim, name: "Neovim" },
-    { icon: <MdDraw className="text-4xl" />, action: handleDraw, name: "Draw" },
-    { icon: <AiOutlineGithub className="text-4xl" />, action: null, name: "GitHub" },
-    { icon: <CgProfile className="text-4xl" />, action: handleLogin, name: "Profile" },
-    { icon: <IoSettingsOutline className="text-4xl" />, action: handleSetting, name: "Settings" },
-    { icon: <SiAboutdotme className="text-4xl" />, action: null, name: "About" },
+    { icon: <LuInfinity className="text-2xl" />, action: handleClick, name: "Loop" },
+    { icon: <FaNoteSticky className="text-2xl" />, action: handleNotes, name: "Problems" },
+    { icon: <GrArchlinux className="text-2xl" />, action: handleArch, name: "Arch" },
+    { icon: <SiNeovim className="text-2xl" />, action: handleNeovim, name: "Neovim" },
+    { icon: <MdDraw className="text-2xl" />, action: handleDraw, name: "Draw" },
+    { icon: <AiOutlineGithub className="text-2xl" />, action: null, name: "GitHub" },
+    { icon: <CgProfile className="text-2xl" />, action: handleLogin, name: "Profile" },
+    { icon: <IoSettingsOutline className="text-2xl" />, action: handleSetting, name: "Settings" },
+    { icon: <SiAboutdotme className="text-2xl" />, action: null, name: "About" },
   ];
 
   return (
-    <motion.div
-      className="sidebar fixed left-0 top-1/2 transform -translate-y-1/2 z-10 text-violet-400 flex items-center justify-center border-zinc-700 rounded-2xl w-[80px] transition-opacity duration-500"
-      initial={{ opacity: 0 }} // Initially hidden
-      whileHover={{ opacity: 1 }} // Fully visible on hover
-      transition={{ duration: 0.5 }}
+    <nav
+      className={`navbar fixed top-0 left-0 w-full bg-zinc-900 text-violet-400 flex items-center justify-between p-8 z-10 shadow-lg transition-transform duration-300 ${
+        visible ? 'translate-y-0' : '-translate-y-full'
+      }`}
     >
-      <div className="icons flex flex-col gap-8 items-center justify-center w-full mt-10">
+      <div className="logo text-2xl font-bold cursor-pointer hover:text-violet-500" onClick={handleClick}>
+        MyWebsite
+      </div>
+      <div className="menu flex gap-6 items-center">
         {items.map(({ icon, action, name }, index) => (
-          <motion.div
+          <div
             key={index}
-            className="relative flex items-center cursor-pointer group"
+            className="relative cursor-pointer group"
             onClick={action}
-            whileHover={{ scale: 1.5, y: -10 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             {icon}
-            <span className="absolute left-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-violet-400">
+            <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm text-violet-400">
               {name}
             </span>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </nav>
   );
 };
 
-export default Sidebar;
+export default Navbar;
 
