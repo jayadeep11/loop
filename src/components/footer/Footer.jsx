@@ -29,10 +29,10 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold mb-4">Explore</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:underline">Features</a></li>
-              <li><a href="#" className="hover:underline">Download</a></li>
-              <li><a href="#" className="hover:underline">Pricing</a></li>
-              <li><a href="#" className="hover:underline">Try Now</a></li>
+              <li><a href="#" className="hover:underline">Arch Linux</a></li>
+              <li><a href="#" className="hover:underline">Neovim</a></li>
+              <li><a href="#" className="hover:underline">Draw</a></li>
+              <li><a href="#" className="hover:underline">Problems</a></li>
             </ul>
           </div>
           <div>
@@ -62,11 +62,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-12 border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center px-6 md:px-12">
+      <div className="mt-12 border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-around items-center px-6 md:px-12">
         <p className="text-sm">Loop@2024 </p>
-        <button className="mt-4 md:mt-0 bg-white text-black px-8 py-3 rounded-full hover:bg-gray-300">
-          Top
-        </button>
       </div>
     </footer>
   );

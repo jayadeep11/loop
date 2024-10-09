@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Card = ({ image, content, imagePosition = 'left' }) => {
   // Conditional classes to change order based on image position
@@ -7,7 +8,7 @@ const Card = ({ image, content, imagePosition = 'left' }) => {
   return (
     <div className={`flex flex-col ${imageFirst} justify-center items-center bg-[#171717] shadow-lg rounded-xl max-w-auto md:mx-48  `}>
       {/* Image side */}
-      <div className="md:w-1/2 p-20 bg-gradient-to-r from-blue-500 to-blue-50 rounded-xl">
+      <div className="md:w-1/2 p-10 bg-gradient-to-r from-blue-500 to-blue-50 rounded-xl">
         <img src={image} alt="Card Image" className="rounded-lg object-cover w-full h-auto" />
       </div>
 

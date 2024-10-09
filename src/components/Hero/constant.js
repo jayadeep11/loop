@@ -7,7 +7,7 @@ export const cardContents = [
   {
     title: 'Arch Linux',
     description: 'My cool desktop!! Which is actually just the most efficient way I’ve found to do my work.',
-    link: '#',
+    link: '/Arch',
     linkText: 'Learn More',
     image: arch, // Replace with actual image path
     imagePosition: 'left'

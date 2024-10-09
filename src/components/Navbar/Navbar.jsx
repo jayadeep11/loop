@@ -5,6 +5,7 @@ import { GrArchlinux } from 'react-icons/gr';
 import { SiNeovim } from 'react-icons/si';
 import { AiOutlineGithub } from 'react-icons/ai';
 import NavItem from './NavItem';
+import logo from "../../assets/LoopLogo.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,8 +42,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`border-zinc-900 border-b text-gray-300 p-4  shadow-lg flex justify-between items-center transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'} fixed left-0 top-0 w-full z-10`}>
-      <div className="text-2xl font-bold">MyWebsite</div>
+    <nav className={`border-zinc-900 border-b text-gray-300 p-4 px-5  shadow-lg flex justify-between items-center transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'} fixed left-0 top-0 w-full z-10`}>
+      <div className="text-2xl font-bold arch">
+            <img src={logo} alt="Logo" className="w-16 h-16" />
+    </div>
       <div className="hidden md:flex gap-6">
         {items.map((item, index) => (
           <NavItem key={index} icon={item.icon} name={item.name} path={item.path} />

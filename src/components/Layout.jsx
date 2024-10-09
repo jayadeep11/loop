@@ -6,7 +6,7 @@ import Footer from '../components/footer/Footer';
 
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#121212]">
+    <div className="flex flex-col min-h-screen bg-black">
       {/* Top Bar */}
       <div className="w-full fixed top-0 left-0 z-10 p-10 bg-transparent">
         <Navbar />
