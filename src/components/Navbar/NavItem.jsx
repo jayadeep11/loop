@@ -13,7 +13,7 @@ const NavItem = ({ icon, name, path }) => {
   };
 
   return (
-    <div className="flex items-center cursor-pointer p-2 hover:bg-violet-500 rounded-md" onClick={handleClick}>
+    <div className="flex items-center cursor-pointer p-2 rounded-md" onClick={handleClick}>
       <span className="text-2xl">{icon}</span>
       <span className="ml-2">{name}</span>
     </div>

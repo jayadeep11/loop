@@ -1,32 +1,33 @@
-export const cardContent = {
-  card1: {
-    left: {
-      title: "Neovim",
-      image: "https://www.seanhalpin.xyz/hp/docs@2x.png",
-      link: "/draw",
-      alt: "draw board image",
-      bgColor: "#9ADFD5", // Background color for the left section
-    },
-    right: {
-      title: "Arch",
-      image: "https://www.seanhalpin.xyz/hp/docs@2x.png",
-      alt: "help scout image",
-      bgColor: "#B7E0FF", // Background color for the right section
-    },
+import arch from "./asserts/arch.jpg";
+import vim from "./asserts/Vim-Features.gif";
+
+
+// constants.js
+export const cardContents = [
+  {
+    title: 'Arch Linux',
+    description: 'My cool desktop!! Which is actually just the most efficient way I’ve found to do my work.',
+    link: '#',
+    linkText: 'Learn More',
+    image: arch, // Replace with actual image path
+    imagePosition: 'left'
   },
-  card2: {
-    left: {
-      title: "Draw",
-      image: "https://www.seanhalpin.xyz/hp/docs@2x.png",
-      link: "/draw",
-      alt: "draw board image",
-      bgColor: "#9ADFD5", // Background color for the left section
-    },
-    right: {
-      title: "Notes",
-      image: "https://www.seanhalpin.xyz/hp/docs@2x.png",
-      alt: "help scout image",
-      bgColor: "#B7E0FF", // Background color for the right section
-    },
+  {
+    title: 'Neovim',
+    description: 'A guide to getting started with Neovim, the powerful text editor that\'s extensible and highly configurable.',
+    link: '#',
+    linkText: 'Discover More',
+    image: vim, // Replace with actual image path
+    imagePosition: 'right'
   },
-};
+  {
+    title: 'Problems',
+    description: 'This is the description or content of the third card. It highlights key aspects and functionality.',
+    link: '#',
+    linkText: 'Explore',
+    image: arch, // Replace with actual image path
+    imagePosition: 'left'
+  },
+  // Add more card objects as needed
+];
+

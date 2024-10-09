@@ -50,42 +50,42 @@ const Neovim = () => {
   return (
     <div className="flex">
       <div className="flex flex-col items-center p-10 text-white min-h-screen w-full">
-        <h1 className="text-violet-400 text-center mt-12 text-7xl font-bold leading-tight arch">Neovim</h1>
+        <h1 className=" text-center mt-12 text-7xl font-bold leading-tight arch">Neovim</h1>
         <p className="text-center mt-4 text-xl text-gray-300 max-w-2xl">
           A guide to getting started with Neovim, the powerful text editor that's extensible and highly configurable.
         </p>
 
         <nav className="flex justify-center space-x-12 mt-12 border-t border-b border-gray-700 py-4">
-          <a href="#installation" className="text-lg text-violet-400 hover:text-white transition">Installation</a>
-          <a href="#basics" className="text-lg text-violet-400 hover:text-white transition">Basic Motions</a>
-          <a href="#editing" className="text-lg text-violet-400 hover:text-white transition">Editing Commands</a>
-          <a href="#plugins" className="text-lg text-violet-400 hover:text-white transition">Plugins</a>
+          <a href="#installation" className="text-lg  hover:text-white transition">Installation</a>
+          <a href="#basics" className="text-lg  hover:text-white transition">Basic Motions</a>
+          <a href="#editing" className="text-lg  hover:text-white transition">Editing Commands</a>
+          <a href="#plugins" className="text-lg  hover:text-white transition">Plugins</a>
         </nav>
 
         <div className="mt-16 text-left max-w-4xl">
           <section id="installation" className="mt-16">
-            <h2 className="text-5xl font-bold text-violet-400 mb-6 arch">Installation</h2>
+            <h2 className="text-5xl font-bold  mb-6 arch">Installation</h2>
             <p className="text-xl text-gray-300 leading-relaxed">
               Neovim is available on various platforms. Follow the instructions below to install it on your system:
             </p>
             <ul className="mt-4 space-y-3 text-xl text-gray-400">
-              <li><b>Arch Linux:</b> <code className="text-violet-400">sudo pacman -S neovim</code></li>
-              <li><b>Ubuntu/Debian:</b> <code className="text-violet-400">sudo apt install neovim</code></li>
-              <li><b>macOS:</b> <code className="text-violet-400">brew install neovim</code></li>
-              <li><b>Windows:</b> Download from the <a href="https://neovim.io" className="text-violet-400 hover:underline">Neovim website</a>.</li>
+              <li><b>Arch Linux:</b> <code className="">sudo pacman -S neovim</code></li>
+              <li><b>Ubuntu/Debian:</b> <code className="">sudo apt install neovim</code></li>
+              <li><b>macOS:</b> <code className="">brew install neovim</code></li>
+              <li><b>Windows:</b> Download from the <a href="https://neovim.io" className=" hover:underline">Neovim website</a>.</li>
             </ul>
           </section>
 
           <BasicsMotion />
 
           <section id="plugins" className="mt-16 mb-16">
-            <h2 className="text-5xl font-bold text-violet-400 mb-6 arch">Plugins</h2>
+            <h2 className="text-5xl font-bold  mb-6 arch">Plugins</h2>
             <p className="text-xl text-gray-300 leading-relaxed">
               One of Neovim's greatest strengths is its extensibility through plugins. You can manage plugins using popular tools like <b>vim-plug</b> or <b>packer.nvim</b>.
             </p>
             <ul className="mt-4 space-y-3 text-xl text-gray-400">
-              <li>Install <b>vim-plug</b>: <code className="text-violet-400">curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></li>
-              <li>Example plugin (NerdTree): <code className="text-violet-400">Plug 'preservim/nerdtree'</code></li>
+              <li>Install <b>vim-plug</b>: <code className="">curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></li>
+              <li>Example plugin (NerdTree): <code className="">Plug 'preservim/nerdtree'</code></li>
             </ul>
           </section>
         </div>
