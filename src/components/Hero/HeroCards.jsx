@@ -10,7 +10,8 @@ const HeroCards = ({ content, rightBig }) => {
         <div
           className={`${
             rightBig ? "lg:col-span-8" : "lg:col-span-2"
-          } sm:col-span-1 bg-[#7092e2] rounded-[3rem] lg:h-[34rem] h-[24rem] p-10 text-white flex flex-col items-end relative overflow-hidden shadow-lg`}
+          } sm:col-span-1 bg-[#7092e2] rounded-[3rem] lg:h-[34rem] h-[24rem] p-10 text-violet-400
+ flex flex-col items-end relative overflow-hidden shadow-lg`}
         >
           <Link to={content.left.link} className="text-[3.4rem] font-extrabold text-black">
             {content.left.title}
@@ -25,7 +26,8 @@ const HeroCards = ({ content, rightBig }) => {
         <div
           className={`${
             rightBig ? "lg:col-span-2" : "lg:col-span-8"
-          } sm:col-span-1 bg-[#7092e2] rounded-[3rem] lg:h-[34rem] h-[24rem] p-10 text-white flex flex-col items-end relative overflow-hidden shadow-lg`}
+          } sm:col-span-1 bg-[#7092e2] rounded-[3rem] lg:h-[34rem] h-[24rem] p-10 text-violet-400
+ flex flex-col items-end relative overflow-hidden shadow-lg`}
         >
           <Link to={content.right.link} className="text-[3.4rem] font-extrabold text-black">
             {content.right.title}
